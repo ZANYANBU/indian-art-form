@@ -94,7 +94,7 @@
     modal.classList.add("open"); modal.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
     modal.querySelector(".modal-card").scrollTop = 0;
-    $("prevBtn").focus();
+    modal.querySelector(".modal-close").focus({ preventScroll: true });
   }
   function closeModal() {
     modal.classList.remove("open"); modal.setAttribute("aria-hidden", "true");
