@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kala Bhoomi · Interactive Map of Indian Art</title>
+  <meta name="description" content="An interactive map of key locations in Indian art history: Ajanta, Ellora, Thanjavur, Khajuraho, Madhubani, the Warli region, Puri and Jaipur. Built with Leaflet and OpenStreetMap." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 4c-12 0-20 9-20 20 0 15 20 36 20 36s20-21 20-36c0-11-8-20-20-20z' fill='%23C4502F'/%3E%3Ccircle cx='32' cy='24' r='9' fill='%23FBF6EC'/%3E%3C/svg%3E" />
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="#">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>Kala <em>Bhoomi</em></span>
+    </a>
+    <p class="top-sub">Interactive Map of Indian Art · 21LEM301T · CLA-I (CO1)</p>
+    <div class="top-actions">
+      <button class="btn btn-ghost" id="tourBtn" type="button">▶ Take the tour</button>
+      <button class="btn btn-primary" id="aboutBtn" type="button">About</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <!-- ============ SIDEBAR ============ -->
+    <aside class="side" id="side">
+      <div class="side-head">
+        <h1>Where India's art was made</h1>
+        <p class="muted">Eight places, eight living traditions. Click a card or a marker to explore.</p>
+        <div class="filters" id="filters" role="group" aria-label="Filter by art type"></div>
+      </div>
+      <ol class="loc-list" id="locList"></ol>
+      <p class="side-foot muted">Map tiles © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors · Built with <a href="https://leafletjs.com" target="_blank" rel="noopener">Leaflet</a>. Photos from Wikimedia Commons.</p>
+    </aside>
+
+    <!-- ============ MAP ============ -->
+    <section class="map-wrap">
+      <div id="map" role="application" aria-label="Map of India with art locations"></div>
+      <div class="legend" id="legend"></div>
+      <button class="side-toggle" id="sideToggle" type="button" aria-expanded="true">☰ Places</button>
+    </section>
+  </div>
+
+  <!-- ============ DETAIL PANEL ============ -->
+  <div class="panel" id="panel" aria-hidden="true">
+    <div class="panel-backdrop" data-close></div>
+    <article class="panel-card" role="dialog" aria-modal="true" aria-labelledby="pTitle">
+      <button class="panel-close" data-close aria-label="Close">×</button>
+      <div class="panel-media"><img id="pImg" alt="" /><span class="pill" id="pType"></span></div>
+      <div class="panel-body">
+        <p class="eyebrow" id="pState"></p>
+        <h2 id="pTitle"></h2>
+        <p class="lede" id="pTag"></p>
+        <div class="kv" id="pKv"></div>
+        <h4>Art movement</h4><p id="pMove"></p>
+        <h4>Historical context</h4><p id="pHist"></p>
+        <h4>Artists &amp; makers</h4><p id="pArt"></p>
+        <h4>Key artworks</h4><ul id="pWorks"></ul>
+        <div class="dyk"><span>Did you know?</span><p id="pDyk"></p></div>
+        <div class="panel-nav">
+          <button class="btn btn-ghost" id="prevBtn" type="button">← Previous</button>
+          <span class="count" id="pCount"></span>
+          <button class="btn btn-ghost" id="nextBtn" type="button">Next →</button>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- ============ ABOUT ============ -->
+  <div class="panel" id="about" aria-hidden="true">
+    <div class="panel-backdrop" data-close-about></div>
+    <article class="panel-card about-card" role="dialog" aria-modal="true">
+      <button class="panel-close" data-close-about aria-label="Close">×</button>
+      <div class="panel-body">
+        <p class="eyebrow">About this map</p>
+        <h2>Tracing the geography of Indian art</h2>
+        <p>Art in India grew out of specific places: a basalt cliff above a river, a delta rich in rice and clay, a desert court with money to spend on painters. This map plots eight of those places and explains what was made there, by whom, and why it mattered.</p>
+        <p><strong>Objective (CO1):</strong> to explore the geographic spread and influence of different art styles across India.</p>
+        <h4>How to use</h4>
+        <ul>
+          <li>Click a marker or a card in the list to fly to that place and open its story.</li>
+          <li>Use the filters to show only cave art, temples, folk painting or court arts and crafts.</li>
+          <li>"Take the tour" visits every location in sequence.</li>
+          <li>Keyboard: ← → to move between places, <kbd>Esc</kbd> to close.</li>
+        </ul>
+        <h4>Built with</h4>
+        <p>Leaflet 1.9 and OpenStreetMap tiles. Plain HTML, CSS and JavaScript, no backend.</p>
+      </div>
+    </article>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
