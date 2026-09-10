@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sangam · Warli × Kalamkari Fusion</title>
+  <meta name="description" content="A digital fusion artwork combining Warli tribal figures with Kalamkari floral motifs and borders, with a project description and presentation points." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23B7593B'/%3E%3Ccircle cx='32' cy='16' r='6' fill='%23FFF6E5'/%3E%3Cpath d='M20 24h24L32 38zM32 38l-10 16h20z' fill='%23FFF6E5'/%3E%3C/svg%3E" />
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"></span>Sangam</a>
+    <nav class="links">
+      <a href="#studio">Artwork</a><a href="#styles">Two styles</a><a href="#process">Process</a><a href="#description">Description</a><a href="#slides">Presentation</a>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="#studio">Open the studio</a>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <p class="eyebrow">21LEM301T · Indian Art Form · CLA-I · Regional Painting Fusion (CO2)</p>
+    <h1>Sangam<span class="sub">Warli <span class="x">×</span> Kalamkari</span></h1>
+    <p class="lede">A meeting of two rivers: the white-on-earth geometry of Maharashtra's Warli painters and the pen-drawn, dye-soaked florals of Andhra's Kalamkari cloth. One digital canvas, two traditions, generated live in your browser.</p>
+    <div class="hero-swatches" aria-hidden="true">
+      <span style="--c:#B7593B"></span><span style="--c:#FFF6E5"></span><span style="--c:#8B2332"></span><span style="--c:#24407E"></span><span style="--c:#D9A21B"></span><span style="--c:#3F6B3A"></span>
+    </div>
+  </section>
+
+  <!-- ============ STUDIO ============ -->
+  <section class="studio" id="studio">
+    <div class="art-frame">
+      <div class="art-mat">
+        <svg id="art" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Warli × Kalamkari fusion artwork: a Kalamkari tree of life in a central medallion, ringed by Warli dancers, with Warli village scenes above and below and Kalamkari vines and paisley borders around."></svg>
+      </div>
+      <p class="art-caption"><em>Sangam (Confluence)</em> · digital, procedurally drawn SVG · 1000 × 1000 units · <span id="seedLabel"></span></p>
+    </div>
+
+    <aside class="controls">
+      <h2>Studio</h2>
+      <p class="muted">Toggle layers to see how the two traditions sit together, change the ground colour, or regenerate the dancers.</p>
+
+      <h4>Palette</h4>
+      <div class="pal" id="palettes"></div>
+
+      <h4>Layers</h4>
+      <div class="layers" id="layers"></div>
+
+      <h4>Dancers</h4>
+      <label class="range">Dancers in the ring <output id="countOut">28</output>
+        <input type="range" id="count" min="16" max="40" value="28" />
+      </label>
+      <button class="btn btn-ghost" id="regen" type="button">↻ Regenerate scene</button>
+
+      <h4>Export</h4>
+      <div class="btn-row">
+        <button class="btn btn-primary" id="dlPng" type="button">Download PNG</button>
+        <button class="btn btn-ghost" id="dlSvg" type="button">Download SVG</button>
+      </div>
+      <p class="tiny muted">PNG exports at 2400 × 2400 px for printing.</p>
+    </aside>
+  </section>
+
+  <!-- ============ ELEMENT LEGEND ============ -->
+  <section class="legend-sec">
+    <div class="section-head">
+      <p class="eyebrow">Reading the artwork</p>
+      <h2>What comes from where</h2>
+    </div>
+    <div class="legend-grid" id="legendGrid"></div>
+  </section>
+
+  <!-- ============ TWO STYLES ============ -->
+  <section class="styles" id="styles">
+    <div class="section-head">
+      <p class="eyebrow">The two traditions</p>
+      <h2>Warli and Kalamkari, side by side</h2>
+      <p class="muted">Similar in spirit, opposite in method: one reduces the world to triangles, the other fills it with flowers.</p>
+    </div>
+    <div class="style-cards">
+      <article class="style-card warli-card">
+        <div class="style-sample"><svg viewBox="0 0 200 200" id="sampleWarli"></svg></div>
+        <h3>Warli</h3>
+        <p class="where">Palghar, Dahanu &amp; Thane · Maharashtra</p>
+        <p>A tribal wall-painting tradition of the Warli Adivasi community, painted by women during weddings and harvests on mud walls coated with cow dung and red earth. Rice paste is the only pigment; a chewed bamboo twig the only brush.</p>
+        <ul>
+          <li><strong>Vocabulary:</strong> circle (sun, moon), triangle (mountain, tree), square (sacred enclosure); a person is two triangles joined at the waist.</li>
+          <li><strong>Themes:</strong> the tarpa dance, farming, hunting, weddings, the goddess Palghat.</li>
+          <li><strong>Feel:</strong> rhythmic, communal, monochrome, humble.</li>
+        </ul>
+      </article>
+      <article class="style-card kalam-card">
+        <div class="style-sample"><svg viewBox="0 0 200 200" id="sampleKalam"></svg></div>
+        <h3>Kalamkari</h3>
+        <p class="where">Srikalahasti &amp; Machilipatnam · Andhra Pradesh</p>
+        <p>A hand-painted and block-printed textile art. The name means "pen work": outlines are drawn with a bamboo kalam dipped in fermented jaggery and iron, then filled with natural dyes such as madder red, indigo and myrobalan yellow, with up to 23 steps of washing and dyeing.</p>
+        <ul>
+          <li><strong>Vocabulary:</strong> tree of life, lotus and rosette flowers, paisley (mango), peacocks and parrots, vine borders.</li>
+          <li><strong>Themes:</strong> Ramayana and Mahabharata scrolls for temples, Persian-influenced florals for trade cloth.</li>
+          <li><strong>Feel:</strong> lush, detailed, earthy reds and blues, flowing line.</li>
+        </ul>
+      </article>
+    </div>
+    <div class="table-wrap">
+      <table class="cmp">
+        <thead><tr><th></th><th>Warli</th><th>Kalamkari</th></tr></thead>
+        <tbody>
+          <tr><th>Region</th><td>Maharashtra (Sahyadri foothills)</td><td>Andhra Pradesh (Srikalahasti, Machilipatnam)</td></tr>
+          <tr><th>Surface</th><td>Mud wall; later paper and cloth</td><td>Cotton cloth treated with myrobalan</td></tr>
+          <tr><th>Tool</th><td>Chewed bamboo twig</td><td>Bamboo kalam (pen) with cloth reservoir; wooden blocks</td></tr>
+          <tr><th>Colours</th><td>White rice paste on red-brown ground</td><td>Madder red, indigo, mustard, green, black outlines on cream</td></tr>
+          <tr><th>Forms</th><td>Geometric: circle, triangle, line</td><td>Organic: flowers, vines, birds, figures</td></tr>
+          <tr><th>Space</th><td>Open ground, figures float in rhythm</td><td>Densely filled, bordered and framed</td></tr>
+          <tr><th>Makers</th><td>Warli women; Jivya Soma Mashe (Padma Shri)</td><td>Chitrakar families; J. Gurappa Chetty, Kailasam</td></tr>
+          <tr><th>Recognition</th><td>Collective IP registered 2014</td><td>GI tag (Srikalahasti Kalamkari) 2013</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ PROCESS ============ -->
+  <section class="process" id="process">
+    <div class="section-head">
+      <p class="eyebrow">How the fusion was built</p>
+      <h2>Four steps to a confluence</h2>
+    </div>
+    <ol class="steps">
+      <li><span>01</span><h3>Study the grammar</h3><p>We listed the smallest units of each style: Warli's circle-triangle-line figures and the tarpa spiral; Kalamkari's pen outline, rosette flowers, paisley and vine border.</p></li>
+      <li><span>02</span><h3>Choose a structure</h3><p>Kalamkari gives the frame: a central medallion and a four-sided vine border, as on a temple cloth. Warli gives the movement: a ring of dancers and narrative bands of village life.</p></li>
+      <li><span>03</span><h3>Reconcile the palettes</h3><p>Warli is white on earth; Kalamkari is maroon, indigo and mustard on cream. We kept Warli figures monochrome and let Kalamkari carry all the colour, so each tradition stays recognisable.</p></li>
+      <li><span>04</span><h3>Draw it as code</h3><p>Every element is drawn with JavaScript into an SVG, so the dancers can be regenerated, layers toggled, and the piece exported at print size. Digital tools stand in for the twig and the kalam.</p></li>
+    </ol>
+  </section>
+
+  <!-- ============ DESCRIPTION ============ -->
+  <section class="doc" id="description">
+    <div class="section-head">
+      <p class="eyebrow">Ready to submit</p>
+      <h2>Project description</h2>
+    </div>
+    <article class="doc-card">
+      <button class="copy" data-copy="descText" type="button">Copy text</button>
+      <div id="descText">
+        <p><strong>Title:</strong> <em>Sangam</em> (Confluence): a Warli × Kalamkari digital fusion artwork.</p>
+        <p><strong>Objective (CO2):</strong> To explore the similarities and differences between two regional painting styles of India and to create a new artwork through creative synthesis, using digital tools.</p>
+        <p><strong>Concept:</strong> Warli painting from Maharashtra and Kalamkari from Andhra Pradesh sit at opposite ends of India's visual vocabulary. Warli is minimal and geometric: white rice-paste figures built from circles, triangles and lines, arranged in rhythmic scenes of dance, farming and ritual on a red-earth wall. Kalamkari is maximal and organic: hand-drawn pen outlines filled with natural dyes, dense with flowers, vines, birds and the tree of life, and always contained within an ornamental border. Our artwork brings the two into a single composition where each keeps its own identity while completing the other.</p>
+        <p><strong>Composition:</strong> The structure is borrowed from a Kalamkari temple cloth: a scalloped central medallion holding a tree of life with rosette flowers and a pair of birds, enclosed by a four-sided vine border with paisleys in the corners. Inside this frame the Warli world moves. A circle of dancers performs the tarpa dance around the medallion, led by a tarpa player. A band above shows the sun, moon, trees, huts and birds of a Warli village; a band below shows farmers, deer, peacocks and cattle. Vertical Kalamkari vines on the left and right complete the frame.</p>
+        <p><strong>Colour:</strong> To keep the traditions legible, the Warli elements remain monochrome (white on terracotta, or terracotta on ivory), while all colour in the piece belongs to Kalamkari: madder maroon, indigo blue, myrobalan mustard and leaf green, outlined in kalam black. Three grounds are offered: terracotta (the Warli wall), ivory (the Kalamkari cloth) and indigo (the dye vat).</p>
+        <p><strong>Tools and technique:</strong> The artwork is produced entirely with digital tools. Each motif is described as a small drawing function in JavaScript and rendered as scalable vector graphics in the browser, so the piece can be regenerated with a different arrangement of dancers, viewed layer by layer, and exported as a print-resolution PNG or an editable SVG. A subtle texture filter recalls the grain of cloth and mud wall.</p>
+        <p><strong>Learning outcome:</strong> Building the piece made the contrast between the two grammars concrete. Warli's figures are easy to generate but hard to give life; Kalamkari's motifs are complex but naturally decorative. The fusion works because Warli supplies rhythm and narrative while Kalamkari supplies frame and colour, mirroring the way folk art and textile art have always borrowed from each other across regions.</p>
+      </div>
+    </article>
+  </section>
+
+  <!-- ============ PRESENTATION ============ -->
+  <section class="doc" id="slides">
+    <div class="section-head">
+      <p class="eyebrow">For the viva / presentation</p>
+      <h2>Presentation points</h2>
+    </div>
+    <article class="doc-card">
+      <button class="copy" data-copy="slideText" type="button">Copy text</button>
+      <div id="slideText" class="slides">
+        <div class="slide"><h3>1 · Title</h3><ul><li><em>Sangam</em>: a Warli × Kalamkari digital fusion.</li><li>Regional Painting Fusion Project, CO2, 21LEM301T Indian Art Form.</li><li>Team members and register numbers.</li></ul></div>
+        <div class="slide"><h3>2 · Objective</h3><ul><li>Compare two regional styles: their origin, tools, colours and motifs.</li><li>Create one artwork that synthesises both without losing either identity.</li><li>Use digital tools as the medium.</li></ul></div>
+        <div class="slide"><h3>3 · Warli in 60 seconds</h3><ul><li>Adivasi wall painting, Palghar–Dahanu, Maharashtra; painted by women for weddings and harvests.</li><li>Rice paste on cow-dung and red-earth wall; bamboo twig brush.</li><li>Grammar: circle, triangle, line; human = two triangles.</li><li>Key motif: tarpa dance spiral. Key artist: Jivya Soma Mashe (Padma Shri 2011).</li></ul></div>
+        <div class="slide"><h3>4 · Kalamkari in 60 seconds</h3><ul><li>Hand-painted (Srikalahasti) and block-printed (Machilipatnam) cloth art, Andhra Pradesh.</li><li>Kalam pen with jaggery-iron ink; natural dyes: madder, indigo, myrobalan; up to 23 steps.</li><li>Motifs: tree of life, lotus, paisley, peacock, vine borders; epic narratives for temples.</li><li>GI tag 2013.</li></ul></div>
+        <div class="slide"><h3>5 · Similarities and differences</h3><ul><li>Both: natural materials, ritual origins, community-based, now commercial folk arts with legal protection.</li><li>Warli: geometric, monochrome, open space. Kalamkari: organic, polychrome, filled and bordered.</li></ul></div>
+        <div class="slide"><h3>6 · Our fusion strategy</h3><ul><li>Kalamkari provides the frame: medallion, tree of life, vine border, corner paisleys.</li><li>Warli provides the movement: dancer ring, village band, farming band.</li><li>Colour rule: Warli stays monochrome; Kalamkari owns the colour.</li></ul></div>
+        <div class="slide"><h3>7 · Digital process</h3><ul><li>Motifs written as drawing functions in JavaScript, rendered as SVG.</li><li>Layer toggles show each tradition alone or combined; regenerate button reshuffles dancers.</li><li>Export at 2400 px PNG or editable SVG; three palettes.</li></ul></div>
+        <div class="slide"><h3>8 · Live demo</h3><ul><li>Toggle Warli layers off: a Kalamkari cloth remains.</li><li>Toggle Kalamkari off: a Warli wall remains.</li><li>Switch palettes; regenerate the dance.</li></ul></div>
+        <div class="slide"><h3>9 · What we learned</h3><ul><li>Minimal forms need rhythm to come alive; rich forms need a frame to stay calm.</li><li>Fusion works when each style takes a distinct job in the composition.</li><li>Folk arts have always borrowed across regions; digital tools make that borrowing visible and repeatable.</li></ul></div>
+        <div class="slide"><h3>10 · Conclusion and credits</h3><ul><li>One canvas, two traditions, both intact.</li><li>References: Jivya Soma Mashe retrospective, Warli; Srikalahasti Kalamkari GI documentation; museum collections.</li><li>Thank you. Questions?</li></ul></div>
+      </div>
+    </article>
+  </section>
+
+  <footer class="footer">
+    <p><strong>Sangam</strong> · Regional Painting Fusion Project (CO2) · SRM Institute of Science and Technology</p>
+    <p class="muted">Original artwork drawn procedurally in SVG. Plain HTML, CSS and JavaScript, no backend.</p>
+  </footer>
+
+  <script src="art.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
