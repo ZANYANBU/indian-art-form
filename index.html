@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chitra Kaal · Interactive Timeline of Indian Art</title>
+  <meta name="description" content="An interactive timeline of Indian art with clickable artifacts from the Indus Valley, Ajanta, Chola, Mughal, Madhubani and Warli traditions." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23E8843A'/%3E%3Ccircle cx='32' cy='32' r='12' fill='%23FBF6EC'/%3E%3C/svg%3E" />
+</head>
+<body>
+  <!-- ============ NAV ============ -->
+  <header class="nav">
+    <a class="brand" href="#top">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>Chitra <em>Kaal</em></span>
+    </a>
+    <nav class="era-nav" id="eraNav" aria-label="Jump to era"></nav>
+    <a class="nav-cta" href="#timeline">Explore ↓</a>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 400 400" class="mandala">
+        <defs>
+          <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#F2B632"/><stop offset="1" stop-color="#E8843A"/>
+          </linearGradient>
+        </defs>
+        <g id="petals"></g>
+        <circle cx="200" cy="200" r="46" fill="url(#g1)"/>
+        <circle cx="200" cy="200" r="30" fill="#FBF6EC"/>
+        <circle cx="200" cy="200" r="14" fill="#C4502F"/>
+      </svg>
+    </div>
+    <div class="hero-copy">
+      <p class="eyebrow">21LEM301T · Indian Art Form · CLA-I</p>
+      <h1>Five thousand years of <span class="hl">Indian art</span>, one scroll.</h1>
+      <p class="lede">
+        Walk from the bronze workshops of Mohenjo-daro to the painted walls of Ajanta, the dancing
+        bronzes of the Cholas, the jewelled miniatures of the Mughal court, and the living folk
+        traditions of Madhubani and Warli. Every artifact is clickable.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#timeline">Start the journey</a>
+        <button class="btn btn-ghost" id="randomBtn" type="button">Surprise me ✦</button>
+      </div>
+      <ul class="stats">
+        <li><strong id="statEras">6</strong><span>eras</span></li>
+        <li><strong id="statArtifacts">12</strong><span>artifacts</span></li>
+        <li><strong>4,500+</strong><span>years</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ TIMELINE ============ -->
+  <main class="timeline-wrap" id="timeline">
+    <div class="section-head">
+      <p class="eyebrow">The timeline</p>
+      <h2>From clay seals to painted courtyards</h2>
+      <p class="muted">Scroll down through time. Click any artifact card to open its story, or use the era chips above to jump.</p>
+    </div>
+    <div class="spine" id="spine"></div>
+  </main>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="about">
+    <div class="about-grid">
+      <div>
+        <p class="eyebrow">About this project</p>
+        <h2>Why a timeline?</h2>
+        <p>Indian art is not one story but many overlapping ones. Placing artifacts on a single axis makes
+          it easy to see continuities, such as the lost-wax casting that links the Dancing Girl of
+          Mohenjo-daro with a Chola Nataraja three and a half millennia later, and ruptures, such as the arrival
+          of Persian miniature techniques at the Mughal court.</p>
+        <p>Each artifact card opens a panel with its date, place, material, historical context and
+          significance, plus a short "did you know" note for presentations.</p>
+      </div>
+      <div class="about-card">
+        <h3>How to use</h3>
+        <ol>
+          <li>Use the era chips at the top to jump between periods.</li>
+          <li>Click an artifact to open its detail panel.</li>
+          <li>Use ← → keys (or the arrows in the panel) to move between artifacts.</li>
+          <li>Press <kbd>Esc</kbd> to close.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p><strong>Chitra Kaal</strong> · Interactive Timeline with Artifacts (CO1) · SRM Institute of Science and Technology</p>
+    <p class="muted">Photographs are loaded from Wikimedia Commons under their respective free licences. Built with plain HTML, CSS and JavaScript.</p>
+  </footer>
+
+  <!-- ============ MODAL ============ -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close></div>
+    <article class="modal-card" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+      <button class="modal-close" data-close aria-label="Close">×</button>
+      <div class="modal-media">
+        <img id="mImg" alt="" />
+        <span class="modal-era" id="mEra"></span>
+      </div>
+      <div class="modal-body">
+        <p class="eyebrow" id="mDate"></p>
+        <h2 id="mTitle"></h2>
+        <dl class="facts" id="mFacts"></dl>
+        <h4>Description</h4>
+        <p id="mDesc"></p>
+        <h4>Historical context</h4>
+        <p id="mContext"></p>
+        <h4>Significance</h4>
+        <p id="mSig"></p>
+        <div class="dyk"><span>Did you know?</span><p id="mDyk"></p></div>
+        <div class="modal-nav">
+          <button class="btn btn-ghost" id="prevBtn" type="button">← Previous</button>
+          <span class="modal-count" id="mCount"></span>
+          <button class="btn btn-ghost" id="nextBtn" type="button">Next →</button>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
