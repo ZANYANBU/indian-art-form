@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Indian Art Form · CLA-I Projects</title>
+  <meta name="description" content="Three interactive projects on Indian art: a timeline with clickable artifacts, a map of key places, and a Warli × Kalamkari digital fusion artwork." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23E8843A'/%3E%3Ccircle cx='32' cy='32' r='12' fill='%23FBF6EC'/%3E%3C/svg%3E" />
+  <style>
+    :root {
+      --cream: #FBF6EC; --paper: #FFFDF8; --ink: #2B2118; --muted: #6F6157; --line: #EADFC9;
+      --saffron: #E8843A; --terracotta: #C4502F; --indigo: #2E3A87; --peacock: #0F7C7A;
+      --radius: 20px;
+      --shadow: 0 10px 30px rgba(74,45,20,.10), 0 2px 6px rgba(74,45,20,.06);
+      --shadow-lg: 0 30px 80px rgba(74,45,20,.22);
+      --font-display: "Playfair Display", Georgia, serif;
+      --font-body: "DM Sans", system-ui, -apple-system, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: var(--font-body); color: var(--ink); line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      background: var(--cream);
+      background-image:
+        radial-gradient(circle at 12% 8%, rgba(242,182,50,.18), transparent 32%),
+        radial-gradient(circle at 88% 18%, rgba(181,43,101,.10), transparent 30%),
+        radial-gradient(circle at 70% 90%, rgba(15,124,122,.10), transparent 32%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: clamp(2.5rem, 7vw, 5.5rem) 1.25rem 3rem; }
+    h1, h2 { font-family: var(--font-display); line-height: 1.12; margin: 0 0 .5em; letter-spacing: -.01em; }
+    h1 { font-size: clamp(2.2rem, 5.2vw, 4rem); font-weight: 700; max-width: 16ch; }
+    h1 .hl { color: var(--terracotta); font-style: italic; font-weight: 500; }
+    h2 { font-size: 1.7rem; font-weight: 700; }
+    h2 em { font-weight: 500; }
+    p { margin: 0 0 1em; }
+    .eyebrow { font-size: .78rem; text-transform: uppercase; letter-spacing: .18em; color: var(--saffron); font-weight: 700; margin-bottom: .8em; }
+    .lede { font-size: 1.1rem; color: var(--muted); max-width: 56ch; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin-top: 2.5rem; padding: 0; list-style: none; }
+    .card {
+      display: flex; flex-direction: column; height: 100%; padding: 1.6rem;
+      background: var(--paper); border: 1px solid var(--line); border-top: 5px solid var(--c);
+      border-radius: var(--radius); box-shadow: var(--shadow); color: inherit; text-decoration: none;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .card:hover, .card:focus-visible { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .card:focus-visible { outline: 3px solid var(--c); outline-offset: 3px; }
+    .card .eyebrow { color: var(--c); }
+    .card p { color: var(--muted); }
+    .card .go { margin: auto 0 0; padding-top: .6rem; font-weight: 700; color: var(--c); }
+    footer { max-width: 1080px; margin: 0 auto; padding: 0 1.25rem 3rem; color: var(--muted); font-size: .9rem; }
+    footer a { color: inherit; }
+    @media (prefers-reduced-motion: reduce) { .card { transition: none; } .card:hover { transform: none; } }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="eyebrow">21LEM301T · Indian Art Form · CLA-I</p>
+    <h1>Indian art, <span class="hl">three ways</span>.</h1>
+    <p class="lede">A timeline, a map and a fusion artwork. Three interactive projects on the history, geography and regional painting styles of Indian art.</p>
+
+    <ul class="grid">
+      <li>
+        <a class="card" href="timeline/" style="--c: var(--saffron)">
+          <p class="eyebrow">Assignment 1 · CO1</p>
+          <h2>Chitra <em>Kaal</em></h2>
+          <p>Interactive timeline of Indian art with clickable artifacts, from the Indus Valley and Ajanta to the Cholas, the Mughal court, Madhubani and Warli.</p>
+          <p class="go">Open the timeline →</p>
+        </a>
+      </li>
+      <li>
+        <a class="card" href="map/" style="--c: var(--peacock)">
+          <p class="eyebrow">Assignment 2 · CO1</p>
+          <h2>Kala <em>Bhoomi</em></h2>
+          <p>Interactive Leaflet and OpenStreetMap map of eight key places in Indian art history, with a guided tour of every location.</p>
+          <p class="go">Open the map →</p>
+        </a>
+      </li>
+      <li>
+        <a class="card" href="fusion/" style="--c: var(--indigo)">
+          <p class="eyebrow">Assignment 3 · CO2</p>
+          <h2>Sangam</h2>
+          <p>Warli × Kalamkari digital fusion artwork drawn procedurally as SVG, with a project description and presentation points.</p>
+          <p class="go">Open the studio →</p>
+        </a>
+      </li>
+    </ul>
+  </main>
+
+  <footer>
+    <p>SRM Institute of Science and Technology · Plain HTML, CSS and JavaScript, no backend · <a href="https://github.com/ZANYANBU/indian-art-form">Source on GitHub</a></p>
+  </footer>
+</body>
+</html>
