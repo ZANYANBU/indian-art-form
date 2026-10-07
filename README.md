@@ -6,6 +6,12 @@ Three interactive projects on Indian art, in one repository.
 
 **Live site:** https://zanyanbu.github.io/indian-art-form/
 
+| Chitra Kaal · timeline | Kala Bhoomi · map |
+|---|---|
+| [![The timeline, with artifact cards along a spine](docs/timeline.jpg)](https://zanyanbu.github.io/indian-art-form/timeline/) | [![The map of India with eight marked places](docs/map.jpg)](https://zanyanbu.github.io/indian-art-form/map/) |
+| **Sangam · fusion artwork** | **Landing page** |
+| [![The Warli and Kalamkari fusion artwork in its studio](docs/fusion.jpg)](https://zanyanbu.github.io/indian-art-form/fusion/) | [![The landing page linking the three projects](docs/landing.jpg)](https://zanyanbu.github.io/indian-art-form/) |
+
 | Folder | Project | Assignment | Live |
 |---|---|---|---|
 | [`timeline/`](timeline/) | **Chitra Kaal** · interactive timeline of Indian art with clickable artifacts (Indus, Ajanta, Chola, Mughal, Madhubani, Warli) | 1 · CO1 | [Open](https://zanyanbu.github.io/indian-art-form/timeline/) |
